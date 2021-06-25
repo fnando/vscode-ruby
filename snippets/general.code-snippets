@@ -1,0 +1,308 @@
+{
+  "Add-'#-=-'-Marker": {
+    "scope": "source.ruby",
+    "prefix": "#",
+    "description": "Add ‘# =>’ Marker",
+    "body": "# =>"
+  },
+  "Dir[glob]": {
+    "scope": "source.ruby",
+    "prefix": "glob",
+    "description": "Dir['..']",
+    "body": "Dir[\"${1:pattern}\"]"
+  },
+  "File.foreach-(-..-)-do-line-..-end-(File)": {
+    "scope": "source.ruby",
+    "prefix": "File",
+    "description": "File.foreach (\"..\") { |line| .. }",
+    "body": "File.foreach(${1:\"${2:path/to/file}\"}) {|${3:line}| $0 }"
+  },
+  "File_expand_path": {
+    "scope": "source.ruby",
+    "prefix": "fep",
+    "description": "",
+    "body": "File.expand_path(\"$0\", __dir__)"
+  },
+  "File_open": {
+    "scope": "source.ruby",
+    "prefix": "fo",
+    "description": "File.open(path, mode)",
+    "body": "File.open(\"${1:path}\", \"${2:mode}\") do |${3:file}|\n\t$0\nend"
+  },
+  "File_read(-__-)": {
+    "scope": "source.ruby",
+    "prefix": "fread",
+    "description": "File.read(path)",
+    "body": "File.read(${1:path})"
+  },
+  "JSON.dump to file": {
+    "scope": "source.ruby",
+    "prefix": "fjd",
+    "description": "JSON.dump(.., file)",
+    "body": "File.open(${1:\"${2:path/to/file}.json\"}, 'w') {|${3:file}| JSON.dump(${4:obj}, ${3:file}) }"
+  },
+  "JSON.dump": {
+    "scope": "source.ruby",
+    "prefix": "jd",
+    "description": "JSON.dump(*args)",
+    "body": "JSON.dump(${1:object}${2:, ${3:io}})"
+  },
+  "JSON.parse": {
+    "scope": "source.ruby",
+    "prefix": "jp",
+    "description": "JSON.parse(string)",
+    "body": "JSON.parse(${1:string}${2:, symbolize_names: true})"
+  },
+  "JSON.pretty_generate": {
+    "scope": "source.ruby",
+    "prefix": "jp",
+    "description": "JSON.pretty_generate(object)",
+    "body": "JSON.pretty_generate(${1:object})"
+  },
+  "Wrap-in-Begin-Rescue-End": {
+    "scope": "source.ruby",
+    "prefix": "begin",
+    "description": "begin … rescue … end",
+    "body": "${TM_SELECTED_TEXT/([\\t ]*).*/$1/m}begin\n\t${3:${TM_SELECTED_TEXT/(\\A.*)|(.+)|\\n\\z/(?1:$0:(?2:\\t$0))/g}}\n${TM_SELECTED_TEXT/([\\t ]*).*/$1/m}rescue ${1:Exception}${2/.+/ => /}${2:e}\n${TM_SELECTED_TEXT/([\\t ]*).*/$1/m}\t$0\n${TM_SELECTED_TEXT/([\\t ]*).*/$1/m}end"
+  },
+  "YAML.dump to file": {
+    "scope": "source.ruby",
+    "prefix": "fyd",
+    "description": "YAML.dump(.., file)",
+    "body": "File.open(${1:\"${2:path/to/file}.yml\"}, 'w') {|${3:file}| YAML.dump(${4:obj}, ${3:file}) }"
+  },
+  "YAML.dump": {
+    "scope": "source.ruby",
+    "prefix": "yd",
+    "description": "YAML.dump(*args)",
+    "body": "YAML.dump(${1:object}${2:, ${3:io}})"
+  },
+  "YAML.safe_load": {
+    "scope": "source.ruby",
+    "prefix": "yl",
+    "description": "YAML.safe_load(content)",
+    "body": "YAML.safe_load($0)"
+  },
+  "YAML.load_file": {
+    "scope": "source.ruby",
+    "prefix": "ylf",
+    "description": "YAML.load_file(file)",
+    "body": "YAML.load_file(\"$0\")"
+  },
+  "__FILE__": {
+    "scope": "source.ruby",
+    "prefix": "file",
+    "description": "",
+    "body": "__FILE__"
+  },
+  "__LINE__": {
+    "scope": "source.ruby",
+    "prefix": "line",
+    "description": "",
+    "body": "__LINE__"
+  },
+  "__dir__": {
+    "scope": "source.ruby",
+    "prefix": "dir",
+    "description": "",
+    "body": "__dir__"
+  },
+  "alias_method-..-(am)": {
+    "scope": "source.ruby",
+    "prefix": "am",
+    "description": "alias_method ..",
+    "body": "alias_method :${1:new_name}, :${0:old_name}"
+  },
+  "assign_instance_variable": {
+    "scope": "source.ruby",
+    "prefix": "@",
+    "description": "@variable = variable",
+    "body": "@${1:variable} = $1"
+  },
+  "attr_accessor-..-(rw)": {
+    "scope": "source.ruby",
+    "prefix": "rw",
+    "description": "attr_accessor ..",
+    "body": "attr_accessor :${0:attr_names}"
+  },
+  "attr_reader-..-(r)": {
+    "scope": "source.ruby",
+    "prefix": "r",
+    "description": "attr_reader ..",
+    "body": "attr_reader :${0:attr_names}"
+  },
+  "attr_writer-..-(w)": {
+    "scope": "source.ruby",
+    "prefix": "w",
+    "description": "attr_writer ..",
+    "body": "attr_writer :${0:attr_names}"
+  },
+  "benchmark-bmbm": {
+    "scope": "source.ruby",
+    "prefix": "bench",
+    "description": "benchmark (bmbm)",
+    "body": "require \"benchmark\"\n\nCYCLES = 1_000_000\n\nBenchmark.bmbm do |x|\n  x.report(\"$1\") {CYCLES.times{ $0 }}\nend"
+  },
+  "benchmark-ips": {
+    "scope": "source.ruby",
+    "prefix": "bench",
+    "description": "benchmark (ips)",
+    "body": "require \"benchmark/ips\"\n\nBenchmark.ips do |x|\n  x.report(\"$1\") { $0 }\n  x.compare!\nend"
+  },
+  "case": {
+    "scope": "source.ruby",
+    "prefix": "case",
+    "description": "case … end",
+    "body": "case ${1:object}\nwhen ${2:condition}\n  $0\nend"
+  },
+  "class-..-Struct-..-initialize-..-end": {
+    "scope": "source.ruby",
+    "prefix": "struct",
+    "description": "ClassName = Struct .. do .. end",
+    "body": "${TM_FILENAME_BASE/(?:^|_)([A-Za-z0-9]+)/${1:/capitalize}/g} = Struct.new(:${2:attr_names}) do\n  def ${3:method_name}\n    $0\n  end\nend"
+  },
+  "class-..-end-(cla)": {
+    "scope": "source.ruby",
+    "prefix": "cla",
+    "description": "class .. end",
+    "body": "class ${TM_FILENAME_BASE/(?:^|_)([A-Za-z0-9]+)/${1:/capitalize}/g}\n\t$0\nend"
+  },
+  "class-..-initialize-..-end": {
+    "scope": "source.ruby",
+    "prefix": "clai",
+    "description": "class .. initialize .. end",
+    "body": "class ${TM_FILENAME_BASE/(?:^|_)([A-Za-z0-9]+)/${1:/capitalize}/g}\n  def initialize${2:(${3:args})}\n    $0\n  end\nend"
+  },
+  "class-self-__-end": {
+    "scope": "source.ruby",
+    "prefix": "sc",
+    "description": "class << self .. end",
+    "body": "class << ${1:self}\n  $0\nend"
+  },
+  "def-end": {
+    "scope": "source.ruby",
+    "prefix": "def",
+    "description": "def … end",
+    "body": "def ${1:method_name}\n\t$0\nend"
+  },
+  "def-initialize": {
+    "scope": "source.ruby",
+    "prefix": "defi",
+    "description": "",
+    "body": "def initialize${1:(${2:args})}\n  $0\nend"
+  },
+  "def-method_missing-..-end-(mm)": {
+    "scope": "source.ruby",
+    "prefix": "defm",
+    "description": "def method_missing .. end",
+    "body": "def method_missing(name, *args, &block)\n  $0\nend"
+  },
+  "def-self-..-end-(defs)": {
+    "scope": "source.ruby",
+    "prefix": "defs",
+    "description": "def self .. end",
+    "body": "def self.${1:class_method_name}\n\t$0\nend"
+  },
+  "def-test_-..-end-(t)": {
+    "scope": "source.ruby",
+    "prefix": "deft",
+    "description": "def test_ .. end",
+    "body": "def test_${1:case_name}\n\t$0\nend"
+  },
+  "def_delegator-..-(defd)": {
+    "scope": "source.ruby",
+    "prefix": "defd",
+    "description": "def_delegator ..",
+    "body": "def_delegator :${1:@del_obj}, :${2:del_meth}, :${3:new_name}"
+  },
+  "def_delegators-..-(defds)": {
+    "scope": "source.ruby",
+    "prefix": "defds",
+    "description": "def_delegators ..",
+    "body": "def_delegators :${1:@del_obj}, :${0:del_methods}"
+  },
+  "do-obj-..-end-(doo)": {
+    "scope": "source.ruby",
+    "prefix": "do",
+    "description": "do()",
+    "body": "do${1: |${2:arg}|}\n\t$0\nend"
+  },
+  "elsif-___": {
+    "scope": "source.ruby",
+    "prefix": "elsif",
+    "description": "elsif ...",
+    "body": "elsif ${1:condition}\n\t$0"
+  },
+  "extend-Forwardable-(Forw)": {
+    "scope": "source.ruby",
+    "prefix": "forw",
+    "description": "extend Forwardable",
+    "body": "extend Forwardable"
+  },
+  "extend": {
+    "scope": "source.ruby",
+    "prefix": "ext",
+    "description": "",
+    "body": "extend ${1:Module}"
+  },
+  "hash-pair-(-)": {
+    "scope": "source.ruby",
+    "prefix": ":",
+    "description": "Hash Pair — key: \"value\"",
+    "body": "${1:key}: ${2:\"${3:value}\"}${4:, }"
+  },
+  "if-else": {
+    "scope": "source.ruby",
+    "prefix": "ife",
+    "description": "if … else … end",
+    "body": "if ${1:condition}\n  $2\nelse\n  $3\nend"
+  },
+  "module-..-end": {
+    "scope": "source.ruby",
+    "prefix": "mod",
+    "description": "module .. end",
+    "body": "module ${TM_FILENAME_BASE/(?:^|_)([A-Za-z0-9]+)/${1:/capitalize}/g}\n\t$0\nend"
+  },
+  "open-yield-block-({)": {
+    "scope": "source.ruby",
+    "prefix": "{",
+    "description": "Insert { |variable| … }",
+    "body": "{ ${1/(^(?<var>\\s*[a-z_][a-zA-Z0-9_]*\\s*)(,\\g<var>)*,?\\s*$)|.*/(?1:|)/}${1:variable}${1/(^(?<var>\\s*[a-z_][a-zA-Z0-9_]*\\s*)(,\\g<var>)*,?\\s*$)|.*/(?1:| )/}${2:$TM_SELECTED_TEXT}"
+  },
+  "require-..-(req)": {
+    "scope": "source.ruby",
+    "prefix": "req",
+    "description": "require \"..\"",
+    "body": "require \"$0\""
+  },
+  "require_relative": {
+    "scope": "source.ruby",
+    "prefix": "rr",
+    "description": "",
+    "body": "require_relative \"$0\""
+  },
+  "ruby-if": {
+    "scope": "source.ruby",
+    "prefix": "if",
+    "description": "if … end",
+    "body": "if ${1:condition}\n  $0\nend"
+  },
+  "task-task_name-=-[-dependent-tasks]-do-__-end": {
+    "scope": "source.ruby",
+    "prefix": "tas",
+    "description": "task :task_name => [:dependent, :tasks] do .. end",
+    "body": "desc \"${1:Task description}\"\ntask :${2:${3:task_name} => ${4:[:${5:dependent, :tasks}]}} do\n\t$0\nend"
+  },
+  "unless-(unless)": {
+    "scope": "source.ruby",
+    "prefix": "unless",
+    "description": "unless … end",
+    "body": "unless ${1:condition}\n\t$0\nend"
+  },
+  "when": {
+    "scope": "source.ruby",
+    "prefix": "when",
+    "description": "when …",
+    "body": "when ${1:condition}\n\t$0"
+  }
+}

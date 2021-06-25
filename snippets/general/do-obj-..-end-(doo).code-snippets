@@ -1,0 +1,8 @@
+{
+  "do-obj-..-end-(doo)": {
+    "scope": "source.ruby",
+    "prefix": "do",
+    "description": "do..end",
+    "body": "do${1: |${2:arg}|}\n\t$0\nend"
+  }
+}

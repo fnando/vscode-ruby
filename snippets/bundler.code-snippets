@@ -1,0 +1,50 @@
+{
+  "gem": {
+    "scope": "source.ruby.bundler",
+    "prefix": "gem",
+    "description": "",
+    "body": "gem \"${1:gem name}\"${2:, \"${3:version}\"}"
+  },
+  "git": {
+    "scope": "source.ruby.bundler",
+    "prefix": "git",
+    "description": "",
+    "body": "git \"${1:repository}\" do\n  $0\nend"
+  },
+  "group": {
+    "scope": "source.ruby.bundler",
+    "prefix": "group",
+    "description": "",
+    "body": "group ${1:development} do\n  $0\nend"
+  },
+  "install_if": {
+    "scope": "source.ruby.bundler",
+    "prefix": "inst",
+    "description": "",
+    "body": "install_if -> { ${1:condition} } do\n  $0\nend"
+  },
+  "path": {
+    "scope": "source.ruby.bundler",
+    "prefix": "path",
+    "description": "",
+    "body": "path ${1:\"${2:path}\"} do\n  $0\nend"
+  },
+  "platforms": {
+    "scope": "source.ruby.bundler",
+    "prefix": "plat",
+    "description": "",
+    "body": "platforms :${1:ruby} do\n  $0\nend"
+  },
+  "ruby": {
+    "scope": "source.ruby.bundler",
+    "prefix": "ruby",
+    "description": "",
+    "body": "ruby \"${1:2.7.2}\""
+  },
+  "source": {
+    "scope": "source.ruby.bundler",
+    "prefix": "sour",
+    "description": "",
+    "body": "source \"${1:https://rubygems.org}\""
+  }
+}

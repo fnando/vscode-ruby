@@ -1,0 +1,144 @@
+{
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "grammars": [
+      {
+        "language": "ruby-puma",
+        "path": "./syntaxes/puma.tmLanguage.json",
+        "scopeName": "source.ruby.puma"
+      },
+      {
+        "language": "ruby-bundler",
+        "path": "./syntaxes/bundler.tmLanguage.json",
+        "scopeName": "source.ruby.bundler"
+      },
+      {
+        "language": "ruby-test",
+        "path": "./syntaxes/test.tmLanguage.json",
+        "scopeName": "source.ruby.test"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "erb.toggleTags",
+        "key": "ctrl+shift+.",
+        "when": "editorTextFocus && editorLangId == 'erb'"
+      },
+      {
+        "args": {
+          "snippet": "#{${0:$TM_SELECTED_TEXT}}"
+        },
+        "command": "editor.action.insertSnippet",
+        "key": "shift+3",
+        "when": "editorTextFocus && editorLangId == 'ruby'"
+      },
+      {
+        "args": {
+          "snippet": "#{${0:$TM_SELECTED_TEXT}}"
+        },
+        "command": "editor.action.insertSnippet",
+        "key": "shift+3",
+        "when": "editorTextFocus && editorLangId == 'ruby-test'"
+      },
+      {
+        "args": {
+          "snippet": "#{${0:$TM_SELECTED_TEXT}}"
+        },
+        "command": "editor.action.insertSnippet",
+        "key": "shift+3",
+        "when": "editorTextFocus && editorLangId == 'ruby-puma'"
+      },
+      {
+        "args": {
+          "snippet": "#{${0:$TM_SELECTED_TEXT}}"
+        },
+        "command": "editor.action.insertSnippet",
+        "key": "shift+3",
+        "when": "editorTextFocus && editorLangId == 'ruby-bundler'"
+      }
+    ],
+    "languages": [
+      {
+        "aliases": [
+          "Puma (Ruby)",
+          "Puma",
+          "puma"
+        ],
+        "configuration": "./language-configuration.json",
+        "filenames": [
+          "puma.rb"
+        ],
+        "id": "ruby-puma"
+      },
+      {
+        "aliases": [
+          "Bundler (Ruby)",
+          "Bundler",
+          "bundler"
+        ],
+        "configuration": "./language-configuration.json",
+        "filenames": [
+          "Gemfile.rb",
+          "Gemfile"
+        ],
+        "id": "ruby-bundler"
+      },
+      {
+        "aliases": [
+          "Test (Ruby)",
+          "Test",
+          "test"
+        ],
+        "configuration": "./language-configuration.json",
+        "extensions": [
+          "_test.rb"
+        ],
+        "id": "ruby-test"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "ruby-test",
+        "path": "./snippets/test.code-snippets"
+      },
+      {
+        "language": "ruby-test",
+        "path": "./snippets/capybara.code-snippets"
+      },
+      {
+        "language": "ruby-bundler",
+        "path": "./snippets/bundler.code-snippets"
+      },
+      {
+        "language": "ruby",
+        "path": "./snippets/general.code-snippets"
+      },
+      {
+        "language": "ruby-test",
+        "path": "./snippets/general.code-snippets"
+      },
+      {
+        "language": "ruby-bundler",
+        "path": "./snippets/general.code-snippets"
+      },
+      {
+        "language": "ruby-puma",
+        "path": "./snippets/general.code-snippets"
+      }
+    ]
+  },
+  "description": "This is a custom Ruby package, that includes snippets, custom syntax highlighters and more!",
+  "displayName": "vscode-ruby",
+  "engines": {
+    "vscode": "^1.57.0"
+  },
+  "extensionDependencies": [
+    "vortizhe.simple-ruby-erb"
+  ],
+  "icon": "icon.png",
+  "name": "ruby",
+  "publisher": "fnando",
+  "version": "0.0.0"
+}

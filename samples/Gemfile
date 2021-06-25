@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+p YAML.safe_load("foo: #{Date.now}")
+
+source "https://rubygems.org"
+gem "gem name", "version"
+
+group :development do
+end
+
+platforms :ruby do
+end

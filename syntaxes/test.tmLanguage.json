@@ -1,0 +1,40 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Test (Ruby)",
+  "patterns": [
+    {
+      "include": "#assert"
+    },
+    {
+      "include": "#cabybara"
+    },
+    {
+      "include": "#other"
+    },
+    {
+      "include": "#refute"
+    },
+    {
+      "include": "source.ruby"
+    }
+  ],
+  "repository": {
+    "assert": {
+      "match": "\\bassert(_(empty|equal|includes|in_delta|in_epsilon|instance_of|kind_of|match|nil|operator|predicate|raises|respond_to|same))?\\b",
+      "name": "entity.name.function.ruby.test.assert"
+    },
+    "cabybara": {
+      "match": "\\b(accept_alert|accept_confirm|accept_prompt|attach_file|check|choose|click_button|click_link|click_on|dismiss_alert|dismiss_confirm|dismiss_prompt|fill_in|find_button|find_field|find_link|page|select|uncheck|visit|window_opened_by|within_fieldset|within_table|within_window|within)\\b",
+      "name": "entity.name.function.ruby.puma"
+    },
+    "other": {
+      "match": "\\b(flunk|skip|capture_io|capture_subprocess_io|test|setup|teardown|let)\\b",
+      "name": "entity.name.function.ruby.test"
+    },
+    "refute": {
+      "match": "\\brefute(_(empty|equal|includes|in_delta|in_epsilon|instance_of|kind_of|match|nil|operator|output|predicate|raises|respond_to|same|send|silence|throws))?\\b",
+      "name": "entity.name.function.ruby.test.refute"
+    }
+  },
+  "scopeName": "source.ruby.test"
+}

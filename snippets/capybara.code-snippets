@@ -1,0 +1,86 @@
+{
+  "attach_file": {
+    "scope": "source.ruby.test",
+    "prefix": "attach_file",
+    "description": "attach_file (capybara)",
+    "body": "attach_file ${1:label(\"${3:scope}\")}, ${4:file path}"
+  },
+  "check": {
+    "scope": "source.ruby.test",
+    "prefix": "check",
+    "description": "check (capybara)",
+    "body": "check ${1:t(\"${2:scope}\")}"
+  },
+  "choose": {
+    "scope": "source.ruby.test",
+    "prefix": "choose",
+    "description": "choose radio (capybara)",
+    "body": "choose ${1:t(\"${2:scope}\")}"
+  },
+  "click_button": {
+    "scope": "source.ruby.test",
+    "prefix": "clic",
+    "description": "click_button (capybara)",
+    "body": "click_button ${1:button(\"${2:scope}\")}"
+  },
+  "click_link": {
+    "scope": "source.ruby.test",
+    "prefix": "clic",
+    "description": "click_link (capybara)",
+    "body": "click_link ${1:t(\"${2:scope}\")}"
+  },
+  "click_on": {
+    "scope": "source.ruby.test",
+    "prefix": "clic",
+    "description": "click_on (capybara)",
+    "body": "click_on ${1:t(\"${2:scope}\")}"
+  },
+  "fill_in": {
+    "scope": "source.ruby.test",
+    "prefix": "fi",
+    "description": "fill_in (capybara)",
+    "body": "fill_in ${1:label(\"${2:scope}\")}, with: \"${3:value}\""
+  },
+  "find_field": {
+    "scope": "source.ruby.test",
+    "prefix": "pht",
+    "description": "page.has_text? (capybara)",
+    "body": "assert page.has_text?(${1:t(\"${2:scope}\")})"
+  },
+  "page_has_css": {
+    "scope": "source.ruby.test",
+    "prefix": "phc",
+    "description": "page.has_css? (capybara)",
+    "body": "assert page.has_css?(\"${1:selector}\")"
+  },
+  "page_has_selector": {
+    "scope": "source.ruby.test",
+    "prefix": "phs",
+    "description": "page.has_selector? (capybara)",
+    "body": "assert page.has_selector?(\"${1:selector}\")"
+  },
+  "page_has_text": {
+    "scope": "source.ruby.test",
+    "prefix": "pht",
+    "description": "page.has_text? (capybara)",
+    "body": "assert page.has_text?(${1:t(\"${2:scope}\")})"
+  },
+  "select": {
+    "scope": "source.ruby.test",
+    "prefix": "select",
+    "description": "select (capybara)",
+    "body": "select ${1:option}, from: ${2:t(\"${3:scope}\")}"
+  },
+  "uncheck": {
+    "scope": "source.ruby.test",
+    "prefix": "uncheck",
+    "description": "uncheck (capybara)",
+    "body": "uncheck ${1:t(\"${2:scope}\")}"
+  },
+  "visit": {
+    "scope": "source.ruby.test",
+    "prefix": "vis",
+    "description": "visit (capybara)",
+    "body": "visit ${1:path}"
+  }
+}

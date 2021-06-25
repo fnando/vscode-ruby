@@ -1,0 +1,278 @@
+{
+  "ActionController--TestCase": {
+    "scope": "source.ruby.test",
+    "prefix": "clat",
+    "description": "ActionController::TestCase",
+    "body": "class ${TM_FILENAME_BASE/(?:^|_)([A-Za-z0-9]+)/${1:/capitalize}/g} < ActionController::TestCase\n  $0\nend"
+  },
+  "ActionDispatch--IntegrationTest": {
+    "scope": "source.ruby.test",
+    "prefix": "clat",
+    "description": "ActionDispatch::IntegrationTest",
+    "body": "class ${TM_FILENAME_BASE/(?:^|_)([A-Za-z0-9]+)/${1:/capitalize}/g} < ActionDispatch::IntegrationTest\n  $0\nend"
+  },
+  "ActionMailer--TestCase": {
+    "scope": "source.ruby.test",
+    "prefix": "clat",
+    "description": "ActionMailer::TestCase",
+    "body": "class ${TM_FILENAME_BASE/(?:^|_)([A-Za-z0-9]+)/${1:/capitalize}/g} < ActionMailer::TestCase\n  $0\nend"
+  },
+  "ActionView--TestCase": {
+    "scope": "source.ruby.test",
+    "prefix": "clat",
+    "description": "ActionView::TestCase",
+    "body": "class ${TM_FILENAME_BASE/(?:^|_)([A-Za-z0-9]+)/${1:/capitalize}/g} < ActionView::TestCase\n  $0\nend"
+  },
+  "ActiveJob--TestCase": {
+    "scope": "source.ruby.test",
+    "prefix": "clat",
+    "description": "ActiveJob::TestCase",
+    "body": "class ${TM_FILENAME_BASE/(?:^|_)([A-Za-z0-9]+)/${1:/capitalize}/g} < ActiveJob::TestCase\n  $0\nend"
+  },
+  "ActiveSupport--TestCase": {
+    "scope": "source.ruby.test",
+    "prefix": "clat",
+    "description": "ActiveSupport::TestCase",
+    "body": "class ${TM_FILENAME_BASE/(?:^|_)([A-Za-z0-9]+)/${1:/capitalize}/g} < ActiveSupport::TestCase\n  $0\nend"
+  },
+  "Minitest--Test": {
+    "scope": "source.ruby.test",
+    "prefix": "clat",
+    "description": "Minitest::Test",
+    "body": "class ${TM_FILENAME_BASE/(?:^|_)([A-Za-z0-9]+)/${1:/capitalize}/g} < Minitest::Test\n  $0\nend"
+  },
+  "Rails--Generators--TestCase": {
+    "scope": "source.ruby.test",
+    "prefix": "clat",
+    "description": "Rails::Generators::TestCase",
+    "body": "class ${TM_FILENAME_BASE/(?:^|_)([A-Za-z0-9]+)/${1:/capitalize}/g} < Rails::Generators::TestCase\n  $0\nend"
+  },
+  "assert": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "as",
+    "description": "assert(..)",
+    "body": "assert ${1:test}"
+  },
+  "assert_empty": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "ase",
+    "description": "assert_empty(..)",
+    "body": "assert_empty ${1:object}"
+  },
+  "assert_equal": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "ase",
+    "description": "assert_equal(..)",
+    "body": "assert_equal ${1:expected}, ${0:actual}"
+  },
+  "assert_in_delta": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "asid",
+    "description": "assert_in_delta(..)",
+    "body": "assert_in_delta ${1:expected_float}, ${2:actual_float}, ${0:2 ** -20}"
+  },
+  "assert_in_epsilon": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "asie",
+    "description": "assert_in_epsilon(..)",
+    "body": "assert_in_epsilon ${1:expected_float}, ${2:actual_float}, ${0:0.001}"
+  },
+  "assert_includes": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "asi",
+    "description": "assert_includes(..)",
+    "body": "assert_includes ${1:collection}, ${0:item}"
+  },
+  "assert_instance_of": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "asio",
+    "description": "assert_instance_of(..)",
+    "body": "assert_instance_of ${1:ExpectedClass}, ${0:actual_instance}"
+  },
+  "assert_kind_of": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "asko",
+    "description": "assert_kind_of(..)",
+    "body": "assert_kind_of ${1:ExpectedKind}, ${0:actual_instance}"
+  },
+  "assert_match": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "asm",
+    "description": "assert_match(..)",
+    "body": "assert_match /${1:expected_pattern}/, ${0:actual_string}"
+  },
+  "assert_nil": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "asn",
+    "description": "assert_nil(..)",
+    "body": "assert_nil ${0:instance}"
+  },
+  "assert_operator": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "aso",
+    "description": "assert_operator(..)",
+    "body": "assert_operator ${1:left}, :${2:operator}, ${0:right}"
+  },
+  "assert_output": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "aso",
+    "description": "assert_output(..) { .. }",
+    "body": "assert_output(${1:stdout}, ${2:stderr}) { $0 }"
+  },
+  "assert_predicate": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "asp",
+    "description": "assert_predicate(..)",
+    "body": "assert_predicate ${1:object}, :${2:method}?"
+  },
+  "assert_raises": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "asr",
+    "description": "assert_raises(..) { .. }",
+    "body": "assert_raises(${1:Exception}) { $0 }"
+  },
+  "assert_respond_to": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "asrt",
+    "description": "assert_respond_to(..)",
+    "body": "assert_respond_to ${1:object}, :${0:method}"
+  },
+  "assert_same": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "ass",
+    "description": "assert_same(..)",
+    "body": "assert_same ${1:expected}, ${0:actual}"
+  },
+  "assert_send": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "ass",
+    "description": "assert_send(..)",
+    "body": "assert_send [${1:object}, :${2:message}, ${0:args}]"
+  },
+  "assert_silence": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "asrs",
+    "description": "assert_silence { .. }",
+    "body": "assert_silence { $0 }"
+  },
+  "assert_throws": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "ast",
+    "description": "assert_throws(..) { .. }",
+    "body": "assert_throws(:${1:expected}) { $0 }"
+  },
+  "capture_io": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "cap",
+    "description": "capture_io { .. }",
+    "body": "out, err = capture_io { $0 }"
+  },
+  "capture_subprocess_io": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "cap",
+    "description": "capture_subprocess_io { .. }",
+    "body": "out, err = capture_subprocess_io { $0 }"
+  },
+  "flunk": {
+    "scope": "source.ruby",
+    "prefix": "fl",
+    "description": "flunk(..)",
+    "body": "flunk(\"${0:Failure message.}\")"
+  },
+  "let": {
+    "scope": "meta.ruby.test_case",
+    "prefix": "let",
+    "description": "let(:name, &block)",
+    "body": "let(:${1:name}) { $0 }"
+  },
+  "refute": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "rs",
+    "description": "refute(..)",
+    "body": "refute ${1:test}"
+  },
+  "refute_empty": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "rse",
+    "description": "refute_empty(..)",
+    "body": "refute_empty ${1:object}"
+  },
+  "refute_equal": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "rse",
+    "description": "refute_equal(..)",
+    "body": "refute_equal ${1:expected}, ${0:actual}"
+  },
+  "refute_in_delta": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "rsid",
+    "description": "refute_in_delta(..)",
+    "body": "refute_in_delta ${1:expected_float}, ${2:actual_float}, ${0:2 ** -20}"
+  },
+  "refute_in_epsilon": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "rsie",
+    "description": "refute_in_epsilon(..)",
+    "body": "refute_in_epsilon ${1:expected_float}, ${2:actual_float}, ${0:0.001}"
+  },
+  "refute_includes": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "rsi",
+    "description": "refute_includes(..)",
+    "body": "refute_includes ${1:collection}, ${2:item}"
+  },
+  "refute_instance_of": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "rsio",
+    "description": "refute_instance_of(..)",
+    "body": "refute_instance_of ${1:ExpectedClass}, ${0:actual_instance}"
+  },
+  "refute_kind_of": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "rsko",
+    "description": "refute_kind_of(..)",
+    "body": "refute_kind_of ${1:ExpectedKind}, ${0:actual_instance}"
+  },
+  "refute_match": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "rsm",
+    "description": "refute_match(..)",
+    "body": "refute_match /${1:expected_pattern}/, ${0:actual_string}"
+  },
+  "refute_nil": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "rsn",
+    "description": "refute_nil(..)",
+    "body": "refute_nil ${0:instance}"
+  },
+  "refute_operator": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "rso",
+    "description": "refute_operator(..)",
+    "body": "refute_operator ${1:left}, :${2:operator}, ${0:right}"
+  },
+  "refute_same": {
+    "scope": "meta.ruby.test_case.test",
+    "prefix": "rss",
+    "description": "refute_same(..)",
+    "body": "refute_same ${1:expected}, ${0:actual}"
+  },
+  "setup": {
+    "scope": "meta.ruby.test_case",
+    "prefix": "setup",
+    "description": "setup(&block)",
+    "body": "setup do\n  $0\nend"
+  },
+  "teardown": {
+    "scope": "meta.ruby.test_case",
+    "prefix": "tear",
+    "description": "teardown(&block)",
+    "body": "teardown do\n  $0\nend"
+  },
+  "test": {
+    "scope": "meta.ruby.test_case",
+    "prefix": "test",
+    "description": "test(&block)",
+    "body": "test \"${1:test description}\" do\n  $0\nend"
+  }
+}

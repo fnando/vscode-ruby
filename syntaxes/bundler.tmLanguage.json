@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Bundler (Ruby)",
+  "patterns": [
+    {
+      "include": "#methods"
+    },
+    {
+      "include": "source.ruby"
+    }
+  ],
+  "repository": {
+    "methods": {
+      "match": "\\b(env|eval_gemfile|gemspec|gem|git_source|github|git|group|install_if|path|platforms|ruby|source|svn)\\b",
+      "name": "entity.name.function.ruby.puma"
+    }
+  },
+  "scopeName": "source.ruby.bundler"
+}
