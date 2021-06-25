@@ -140,5 +140,8 @@
   "icon": "icon.png",
   "name": "ruby",
   "publisher": "fnando",
+  "repository": {
+    "url": "https://github.com/fnando/vscode-ruby"
+  },
   "version": "0.0.0"
 }
