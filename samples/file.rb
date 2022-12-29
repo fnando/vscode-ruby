@@ -2,6 +2,8 @@
 
 p YAML.safe_load("foo: #{Date.now}")
 
+require "active_record"
+
 # @author Foo Bar
 class Sample
   # https://example.com

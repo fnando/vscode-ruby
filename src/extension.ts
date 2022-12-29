@@ -3,6 +3,7 @@ import { createLogger } from "./createLogger";
 import { switchFile } from "./switchFile";
 import { bundlerHoverProvider } from "./bundlerHoverProvider";
 import { annotateGemfile } from "./annotateGemfile";
+import { bundlerCompletionProvider } from "./bundlerCompletionProvider";
 
 const debug = createLogger("extension");
 
@@ -38,6 +39,10 @@ export function activate(context: vscode.ExtensionContext) {
 
     vscode.languages.registerHoverProvider("ruby-bundler", {
       provideHover: bundlerHoverProvider,
+    }),
+
+    vscode.languages.registerCompletionItemProvider("ruby", {
+      provideCompletionItems: bundlerCompletionProvider,
     }),
   );
 }
