@@ -1,8 +1,19 @@
 {
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:rubyFileSwitcher.run"
+  ],
   "categories": [
     "Programming Languages"
   ],
   "contributes": {
+    "commands": [
+      {
+        "category": "Ruby",
+        "command": "rubyFileSwitcher.run",
+        "title": "Switch File"
+      }
+    ],
     "grammars": [
       {
         "language": "ruby-puma",
@@ -32,31 +43,12 @@
         },
         "command": "editor.action.insertSnippet",
         "key": "shift+3",
-        "when": "editorTextFocus && editorLangId == 'ruby'"
+        "when": "editorTextFocus && editorLangId =~ /^ruby/"
       },
       {
-        "args": {
-          "snippet": "#{${0:$TM_SELECTED_TEXT}}"
-        },
-        "command": "editor.action.insertSnippet",
-        "key": "shift+3",
-        "when": "editorTextFocus && editorLangId == 'ruby-test'"
-      },
-      {
-        "args": {
-          "snippet": "#{${0:$TM_SELECTED_TEXT}}"
-        },
-        "command": "editor.action.insertSnippet",
-        "key": "shift+3",
-        "when": "editorTextFocus && editorLangId == 'ruby-puma'"
-      },
-      {
-        "args": {
-          "snippet": "#{${0:$TM_SELECTED_TEXT}}"
-        },
-        "command": "editor.action.insertSnippet",
-        "key": "shift+3",
-        "when": "editorTextFocus && editorLangId == 'ruby-bundler'"
+        "command": "rubyFileSwitcher.run",
+        "key": "super+k super+.",
+        "when": "editorTextFocus && editorLangId =~ /^ruby/"
       }
     ],
     "languages": [
@@ -130,6 +122,13 @@
     ]
   },
   "description": "This is a custom Ruby package, that includes snippets, custom syntax highlighters and more!",
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "@types/vscode": "^1.74.0",
+    "@vscode/vsce": "^2.16.0",
+    "esbuild": "^0.16.12",
+    "typescript": "^4.9.4"
+  },
   "displayName": "vscode-ruby",
   "engines": {
     "vscode": "^1.57.0"
@@ -138,10 +137,20 @@
     "vortizhe.simple-ruby-erb"
   ],
   "icon": "icon.png",
+  "license": "MIT",
+  "main": "./out/extension.js",
   "name": "ruby",
   "publisher": "fnando",
   "repository": {
     "url": "https://github.com/fnando/vscode-ruby"
+  },
+  "scripts": {
+    "compile": "rm -rf out && esbuild --bundle src/extension.ts  --outfile=out/extension.js --platform=node --target=es2019 --format=cjs --external:vscode --sourcemap",
+    "lint": "eslint src --ext ts",
+    "pretest": "npm run compile && npm run lint",
+    "test": "node ./out/test/runTest.js",
+    "vscode:prepublish": "npm run compile",
+    "watch": "npm run compile -- --watch"
   },
   "version": "0.0.0"
 }
