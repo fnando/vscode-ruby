@@ -132,7 +132,7 @@
   },
   "displayName": "vscode-ruby",
   "engines": {
-    "vscode": "^1.57.0"
+    "vscode": "^1.74.0"
   },
   "extensionDependencies": [
     "vortizhe.simple-ruby-erb"
