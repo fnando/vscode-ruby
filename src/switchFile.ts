@@ -1,60 +1,9 @@
 import * as vscode from "vscode";
 import * as path from "path";
-import * as fs from "fs";
-import { debug } from "./debug";
+import { createLogger } from "./createLogger";
+import { isDir, isFile, isRails, getRootDir } from "./utils";
 
-function isRails(rootDir: string): boolean {
-  return (
-    isFile(path.join(rootDir, "config/environment.rb")) &&
-    isDir(path.join(rootDir, "app"))
-  );
-}
-
-function isDir(path: string): boolean {
-  try {
-    return fs.statSync(path).isDirectory();
-  } catch (error) {
-    return false;
-  }
-}
-
-function isFile(path: string): boolean {
-  try {
-    return fs.statSync(path).isFile();
-  } catch (error) {
-    return false;
-  }
-}
-
-function findRootDir({
-  dirs,
-  fileName,
-}: {
-  dirs: string[];
-  fileName: string;
-}): string {
-  let parts = fileName.split("/").slice(0, -2);
-
-  while (parts.length) {
-    const dir = parts.join("/");
-
-    if (dirs.includes(dir)) {
-      return dir;
-    }
-
-    parts.pop();
-  }
-
-  return path.dirname(fileName);
-}
-
-export function getRootDir({ document }: { document: vscode.TextDocument }) {
-  const dirs = vscode.workspace.workspaceFolders?.map(
-    (folder) => folder.uri.path,
-  ) ?? [path.dirname(document.fileName)];
-
-  return findRootDir({ dirs, fileName: document.fileName });
-}
+const debug = createLogger("switchFile");
 
 function findImplementationCandidate({
   relativePath,

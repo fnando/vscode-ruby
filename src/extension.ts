@@ -1,6 +1,10 @@
 import * as vscode from "vscode";
-import { debug } from "./debug";
+import { createLogger } from "./createLogger";
 import { switchFile } from "./switchFile";
+import { bundlerHoverProvider } from "./bundlerHoverProvider";
+import { annotateGemfile } from "./annotateGemfile";
+
+const debug = createLogger("extension");
 
 export function activate(context: vscode.ExtensionContext) {
   debug("activating ruby file switcher");
@@ -12,6 +16,28 @@ export function activate(context: vscode.ExtensionContext) {
       if (vscode.window.activeTextEditor?.document) {
         switchFile({ document: vscode.window.activeTextEditor?.document });
       }
+    }),
+
+    vscode.commands.registerCommand(
+      "annotateGemfile.run",
+      (params: {
+        summary: string;
+        name: string;
+        line: number;
+        url: string;
+      }) => {
+        debug("running annotate gemfile", params);
+
+        if (!vscode.window.activeTextEditor?.document) {
+          return;
+        }
+
+        annotateGemfile({ ...params, editor: vscode.window.activeTextEditor });
+      },
+    ),
+
+    vscode.languages.registerHoverProvider("ruby-bundler", {
+      provideHover: bundlerHoverProvider,
     }),
   );
 }

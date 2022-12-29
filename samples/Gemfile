@@ -1,12 +1,17 @@
 # frozen_string_literal: true
 
-p YAML.safe_load("foo: #{Date.now}")
-
+gem "rails"
 source "https://rubygems.org"
-gem "gem name", "version"
+gem "aitch", ">0"
+gem "minitest"
 
 group :development do
 end
 
+group :test do
+  gem "pry-meta"
+end
+
 platforms :ruby do
+  gem "rake"
 end

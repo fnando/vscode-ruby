@@ -1,7 +1,8 @@
 {
   "activationEvents": [
     "onStartupFinished",
-    "onCommand:rubyFileSwitcher.run"
+    "onCommand:rubyFileSwitcher.run",
+    "onCommand:annotateGemfile.run"
   ],
   "categories": [
     "Programming Languages"

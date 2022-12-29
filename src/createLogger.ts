@@ -1,9 +1,8 @@
 import * as vscode from "vscode";
 
-let output: vscode.OutputChannel =
-  vscode.window.createOutputChannel("rubyFileSwitcher");
+let output: vscode.OutputChannel = vscode.window.createOutputChannel("ruby");
 
-export function log(...args: any[]) {
+function log(...args: any[]) {
   args = args.map((item) => {
     if (item === "") {
       return "<empty string>";
@@ -27,8 +26,6 @@ export function log(...args: any[]) {
   output.appendLine(args.join(" "));
 }
 
-export function debug(...args: any) {
-  const date = new Date().toLocaleTimeString();
-
-  log(`[${date}]`, ...args);
+export function createLogger(tag: string) {
+  return (...args: any) => log(`[${tag}]`, ...args);
 }
